@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { NAV_ITEMS } from "@/lib/constants";
 import { Link } from "lucide-react";
@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 const NavItems = () => {
   const pathname = usePathname();
 
-  const isActive = (path: string) => {...}
+  const isActive = (path: string) => {path}
   
 
 
