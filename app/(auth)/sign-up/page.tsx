@@ -1,7 +1,9 @@
 'use client';
 
 import InputField from "@/components/forms/InputField";
+import SelectField from "@/components/forms/SelectField";
 import { Button } from "@/components/ui/button";
+import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS } from "@/lib/constants";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 const SignUp = () => {
@@ -47,13 +49,68 @@ console.log(data)
         error={errors.fullName}
         validation={{ required: 'Full name is required', minLength: 2 }}
         />
+
+       
+
+         <InputField 
+        name="email"
+        label="Email"
+        placeholder="contact@jsmastery.com"
+        register={register}
+        error={errors.fullName}
+        validation={{ required: 'Email name is required', pattern: /^\w+@\w+\.\w+$/ , message: 'Email address is required'  }}
+        />
+
+          <InputField 
+        name="password"
+        label="Password"
+        placeholder="Enter a strong password"
+        type="password"
+        register={register}
+        error={errors.fullName}
+        validation={{ required: 'Password name is required', minLength: 8 }}
+        />
+
+        { /* Country */}
         
+        <SelectField 
+        name="investmentFoals"
+        label="Investmet Goals"
+        placeholder="Select your investment goal"
+        options={INVESTMENT_GOALS}
+        control={control}
+        error={errors.investmentGoals}
+        required
+        />
+
+        <SelectField 
+        name="riskTolerance"
+        label="Risk Tolerance"
+        placeholder="Select your risk level"
+        options={RISK_TOLERANCE_OPTIONS}
+        control={control}
+        error={errors.riskTolerance}
+        required
+        />
+
+        <SelectField 
+        name="preferredIndustry"
+        label="Preferred Industry"
+        placeholder="Select your preferred industry"
+        options={PREFERRED_INDUSTRIES}
+        control={control}
+        error={errors.preferredIndustry}
+        required
+        />
+
         <Button type="submit" disabled={isSubmitting} className="yellow-btw w-full mt-5">
           {isSubmitting ? 'Creating Account' : 'Start Your Investing Journey'}  
         </Button>
+
+        <FooterLink text="Alrready have an account?" linkText="Sign in" href="/sign-in" />
       </form>
     </>
-  );
-};
+  )
+}
 
 export default SignUp;
