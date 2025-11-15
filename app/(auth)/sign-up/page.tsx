@@ -1,5 +1,7 @@
 'use client';
 
+import CountrySelectField from "@/components/forms/CountrySelectField";
+import CountrySelect from "@/components/forms/CountrySelectField";
 import InputField from "@/components/forms/InputField";
 import SelectField from "@/components/forms/SelectField";
 import { Button } from "@/components/ui/button";
@@ -71,7 +73,7 @@ console.log(data)
         validation={{ required: 'Password name is required', minLength: 8 }}
         />
 
-        { /* Country */}
+       <CountrySelectField />
         
         <SelectField 
         name="investmentFoals"
@@ -107,7 +109,7 @@ console.log(data)
           {isSubmitting ? 'Creating Account' : 'Start Your Investing Journey'}  
         </Button>
 
-        <FooterLink text="Alrready have an account?" linkText="Sign in" href="/sign-in" />
+      
       </form>
     </>
   )
