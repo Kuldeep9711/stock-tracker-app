@@ -1,5 +1,3 @@
-
-
 import Link from "next/link"
 
 const FooterLink = ({ text, linkText, href}: FooterLinkProps) => {
@@ -14,5 +12,4 @@ const FooterLink = ({ text, linkText, href}: FooterLinkProps) => {
     </div>
   )
 }
-
 export default FooterLink
