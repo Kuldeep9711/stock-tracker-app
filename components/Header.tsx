@@ -5,7 +5,11 @@ import Image from "next/image";
 import NavItems from "./NavItems";
 import UserDropdown from "./UserDropdown";
 
-const Header = () => {
+
+
+const Header =  async ({ user }: { user: User }) => {
+  
+
   return (
     <header className="sticky top-0 header">
         <div className="container header-wrapper">
