@@ -1,28 +1,66 @@
-'use client'
+/*'use client';
 
 import Link from "next/link";
 import Image from "next/image";
 import NavItems from "./NavItems";
 import UserDropdown from "./UserDropdown";
+import { useUser } from "@clerk/nextjs";
 
-
-
-const Header =  async ({ user }: { user: User }) => {
-  
+const Header = () => {
+  const { user } = useUser(); // Get user on client-side
 
   return (
     <header className="sticky top-0 header">
-        <div className="container header-wrapper">
-            <Link href="/">
-            <Image src="/assets/icons/logo.svg" alt="Signalist logo" width={140} height={32} className="h-8 w-auto cursor-pointer" />
-            </Link>
-            <nav className="hidden sm:block">
-                 <NavItems />
-            </nav>
-             <UserDropdown />
-        </div>
-    </header>
-  )
-}
+      <div className="container header-wrapper">
+        <Link href="/">
+          <Image
+            src="/assets/icons/logo.svg"
+            alt="Signalist logo"
+            width={140}
+            height={32}
+            className="h-8 w-auto cursor-pointer"
+          />
+        </Link>
 
-export default Header
+        <nav className="hidden sm:block">
+          <NavItems />
+        </nav>
+
+        <UserDropdown user={user} />
+      </div>
+    </header>
+  );
+};
+
+export default Header;
+*/
+
+import NavItems from "./NavItems";
+import UserDropdown from "./UserDropdown";
+import Image from "next/image";
+import Link from "next/link";
+
+const Header = ({ user }: { user: any }) => {
+  return (
+    <header className="sticky top-0 header">
+      <div className="container header-wrapper">
+        <Link href="/">
+          <Image
+            src="/assets/icons/logo.svg"
+            alt="Signalist logo"
+            width={140}
+            height={32}
+          />
+        </Link>
+        <nav className="hidden sm:block">
+          <NavItems />
+        </nav>
+
+        {/* USER DROPDOWN IS CLIENT-ONLY */}
+        <UserDropdown user={user} />
+      </div>
+    </header>
+  );
+};
+
+export default Header;
