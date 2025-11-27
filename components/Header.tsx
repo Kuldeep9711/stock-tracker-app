@@ -40,7 +40,7 @@ import UserDropdown from "./UserDropdown";
 import Image from "next/image";
 import Link from "next/link";
 
-const Header = ({ user }: { user: any }) => {
+const Header = ({ user }: { user: User }) => {
   return (
     <header className="sticky top-0 header">
       <div className="container header-wrapper">

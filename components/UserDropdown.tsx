@@ -14,14 +14,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/Avatar";
 import { LogOut } from "lucide-react";
 import NavItems from "./NavItems";
 
-const UserDropdown = () => {
+const UserDropdown = ({ user }: {user: User}) => {
   const rounter = useRouter();
 
   const handleSignOut = async () => {
     rounter.push("/sign-in");
   };
 
-  const user = { name: "John", email: "contact@jsmastary.com" };
+  
 
   return (
     <DropdownMenu>
