@@ -13,12 +13,14 @@ import { Button } from "./ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/Avatar";
 import { LogOut } from "lucide-react";
 import NavItems from "./NavItems";
+import { signOut } from "better-auth/api";
 
 const UserDropdown = ({ user }: {user: User}) => {
-  const rounter = useRouter();
+  const router = useRouter();
 
   const handleSignOut = async () => {
-    rounter.push("/sign-in");
+    await signOut();
+    router.push("/sign-in");
   };
 
   
